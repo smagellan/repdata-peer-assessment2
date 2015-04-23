@@ -1,0 +1,43 @@
+---
+title: 'Severe weather events: economic and health impacts'
+author: "Vv"
+date: "04/24/2015"
+output: html_document
+---
+
+
+###Synopsis
+
+
+###Data Processing
+Note: current stable version of 'data.table' library, 1.9.4, is not able to read dataset being vivisected. So, to make it work, you should update data.table to v1.9.5 or higher, as described [here](https://github.com/Rdatatable/data.table/wiki/Installation). In short: 
+
+    # To install development version
+    library(devtools)
+    install_github("Rdatatable/data.table", build_vignettes = FALSE)
+
+    # If you would like to revert back to CRAN version
+    remove.packages("data.table")         # First remove the current version
+    install.packages("data.table")        # Then install the CRAN version
+
+Latest commit at the time of writing of this paper is 6601aab68559308654ab6dad7e2181f510a44b1f.
+
+```{r setoptions,echo=TRUE}
+library(data.table);
+if (!exists("rawData")){
+    rawData <- fread("repdata-data-StormData.csv", stringsAsFactors = FALSE, sep = ",", header = TRUE);
+}
+```
+
+here are the data from the point of bird’s-eye view:
+
+```{r}
+str(rawData)
+```
+
+
+
+###Results
+
+For the purposes of this report PROPDMGEXP has been treated as...
+
